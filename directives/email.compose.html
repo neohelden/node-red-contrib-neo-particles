@@ -1,0 +1,83 @@
+<script type="text/javascript">
+  RED.nodes.registerType('directive-email-compose', {
+    category: 'Neo_Directives',
+    color: '#e8defa',
+    defaults: {
+      recipients: { value: "" },
+      subject: { value: "" },
+      body: { value: "" },
+      cc: { value: "" },
+      bcc: { value: "" }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "envelope.png",
+    label: function () {
+      return 'Directive: Email compose'
+    },
+    oneditprepare: function() {
+        var that = this;
+        this.editor = RED.editor.createEditor({
+            id: 'node-input-body-editor',
+            mode: 'ace/mode/html',
+            value: $("#node-input-body").val()
+        });
+        this.editor.focus();
+    },
+    oneditsave: function() {
+        $("#node-input-body").val(this.editor.getValue());
+        this.editor.destroy();
+        delete this.editor;
+    },
+    oneditcancel: function() {
+        this.editor.destroy();
+        delete this.editor;
+    },
+    oneditresize: function(size) {
+        var rows = $("#dialog-form>div:not(.node-text-editor-row)");
+        var height = $("#dialog-form").height();
+        for (var i=0; i<rows.size(); i++) {
+            height -= $(rows[i]).outerHeight(true);
+        }
+        var editorRow = $("#dialog-form>div.node-text-editor-row");
+        height -= (parseInt(editorRow.css("marginTop"))+parseInt(editorRow.css("marginBottom")));
+        $(".node-text-editor").css("height",height+"px");
+        this.editor.resize();
+    }
+  })
+</script>
+
+<script type="text/x-red" data-template-name="directive-email-compose">
+  <div class="form-row">
+    <label for="node-input-recipients"><i class="icon-tag"></i> recipients</label>
+    <input type="text" id="node-input-recipients" placeholder="recipients">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-subject"><i class="icon-tag"></i> subject</label>
+    <input type="text" id="node-input-subject" placeholder="subject">
+  </div>
+
+  <div class="form-row" style="margin-bottom: 0px;">
+    <label for="node-input-body" style="width: 100% !important;"><i class="fa fa-comments"></i> Body</label>
+    <input type="hidden" id="node-input-body" autofocus="autofocus">
+  </div>
+
+  <div class="form-row node-text-editor-row">
+    <div style="height: 250px; min-height:150px;" class="node-text-editor" id="node-input-body-editor"></div>
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-cc"><i class="icon-tag"></i> cc</label>
+    <input type="text" id="node-input-cc" placeholder="cc">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-bcc"><i class="icon-tag"></i> bcc</label>
+    <input type="text" id="node-input-bcc" placeholder="bcc">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="directive-email-compose">
+  <p>Directive to trigger email compose. Only recipients is a required attribute.</p>
+</script>
