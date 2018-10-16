@@ -19,9 +19,16 @@ module.exports = function (RED) {
         msg.payload.response.content = []
       }
 
+      var cardPayload = {}
+      try {
+        cardPayload = JSON.parse(n.card)
+      } catch (e) {
+        node.error('Parsing AdaptiveCard payload failed: ' + e.toString(), msg)
+      }
+
       msg.payload.response.content.push({
         type: 'adaptivecard',
-        card: n.card
+        card: cardPayload
       })
 
       node.send(msg)
