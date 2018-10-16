@@ -17,6 +17,7 @@
     "nodes": {
       "phone.call": "directives/phone.call.js",
       "email.compose": "directives/email.compose.js",
+      "url.open": "directives/url.open.js",
       "content.plain": "content/plain.js",
       "content.html": "content/html.js",
       "content.adaptivecard": "content/adaptivecard.js"
