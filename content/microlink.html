@@ -1,0 +1,39 @@
+<script type="text/javascript">
+  RED.nodes.registerType('content-microlink', {
+    category: 'Neo_Content',
+    color: '#b7dfef',
+    defaults: {
+      url: { value: "", required: true },
+      size: { value: "normal" },
+      contrast: { value: false }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "file.png",
+    label: function () {
+      return 'Content: Microlink'
+    }
+  })
+</script>
+
+<script type="text/x-red" data-template-name="content-microlink">
+  <div class="form-row">
+    <label for="node-input-url"><i class="icon-tag"></i> url</label>
+    <input type="text" id="node-input-url" placeholder="url">
+  </div>
+  <div class="form-row node-input-size">
+    <label for="node-input-size"><i class="fa fa-trash"></i> Size</label>
+    <select type="text" id="node-input-size">
+        <option value="normal" selected="selected">normal</option>
+        <option value="large">large</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-input-contrast"><i class="icon-tag"></i> contrast</label>
+    <input type="checkbox" id="node-input-contrast">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="content-microlink">
+  <p>Microlink content type responses.</p>
+</script>

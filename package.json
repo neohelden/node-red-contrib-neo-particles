@@ -20,7 +20,8 @@
       "url.open": "directives/url.open.js",
       "content.plain": "content/plain.js",
       "content.html": "content/html.js",
-      "content.adaptivecard": "content/adaptivecard.js"
+      "content.adaptivecard": "content/adaptivecard.js",
+      "content.microlink": "content/microlink.js"
     }
   },
   "license": "MIT",
