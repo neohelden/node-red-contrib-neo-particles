@@ -1,0 +1,30 @@
+<script type="text/javascript">
+  RED.nodes.registerType('atom-suggestion', {
+    category: 'Neo_Atoms',
+    color: '#e8defa',
+    defaults: {
+      number: { value: "" },
+      number: { value: "" },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "bridge.png",
+    paletteLabel: 'Suggestion',
+    label: 'Suggestion'
+  })
+</script>
+
+<script type="text/x-red" data-template-name="atom-suggestion">
+  <div class="form-row">
+    <label for="node-input-label"><i class="icon-tag"></i> label</label>
+    <input type="text" id="node-input-label" placeholder="label">
+  </div>
+  <div class="form-row">
+    <label for="node-input-value"><i class="icon-tag"></i> value</label>
+    <input type="text" id="node-input-value" placeholder="value">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="atom-suggestion">
+  <p>Atom to add a single suggestion to the response.</p>
+</script>
