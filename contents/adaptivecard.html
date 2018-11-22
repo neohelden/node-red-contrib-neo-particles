@@ -1,28 +1,28 @@
 <script type="text/javascript">
-  RED.nodes.registerType('content-html', {
-    category: 'Neo_Content',
+  RED.nodes.registerType('content-adaptivecard', {
+    category: 'Neo_Contents',
     color: '#b7dfef',
     defaults: {
       name: { value: '' },
-      html: { value: '' }
+      card: { value: '' }
     },
     inputs: 1,
     outputs: 1,
-    icon: "parser-html.png",
+    icon: "parser-yaml.png",
     label: function () {
-      return this.name || 'Content: HTML'
+      return this.name || 'Content: AdaptiveCard'
     },
     oneditprepare: function() {
         var that = this;
         this.editor = RED.editor.createEditor({
-            id: 'node-input-html-editor',
-            mode: 'ace/mode/html',
-            value: $("#node-input-html").val()
+            id: 'node-input-card-editor',
+            mode: 'ace/mode/json',
+            value: $("#node-input-card").val()
         });
         this.editor.focus();
     },
     oneditsave: function() {
-        $("#node-input-html").val(this.editor.getValue());
+        $("#node-input-card").val(this.editor.getValue());
         this.editor.destroy();
         delete this.editor;
     },
@@ -44,22 +44,22 @@
   })
 </script>
 
-<script type="text/x-red" data-template-name="content-html">
+<script type="text/x-red" data-template-name="content-adaptivecard">
   <div class="form-row">
     <label for="node-input-name"><i class="fa fa-comment"></i> Title</span></label>
     <input type="text" id="node-input-name">
   </div>
 
   <div class="form-row" style="margin-bottom: 0px;">
-    <label for="node-input-html" style="width: 100% !important;"><i class="fa fa-comments"></i> HTML payload</label>
-    <input type="hidden" id="node-input-html" autofocus="autofocus">
+    <label for="node-input-card" style="width: 100% !important;"><i class="fa fa-comments"></i> Card payload</label>
+    <input type="hidden" id="node-input-card" autofocus="autofocus">
   </div>
 
   <div class="form-row node-text-editor-row">
-    <div style="height: 250px; min-height:150px;" class="node-text-editor" id="node-input-html-editor"></div>
+    <div style="height: 250px; min-height:150px;" class="node-text-editor" id="node-input-card-editor"></div>
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="content-html">
-  <p>HTML content type responses.</p>
+<script type="text/x-red" data-help-name="content-adaptivecard">
+  <p>Plain content type responses.</p>
 </script>
