@@ -21,7 +21,7 @@ module.exports = function (RED) {
 
       msg.payload.response.content.push({
         type: 'camera',
-        data: {}
+        target: n.target
       })
 
       node.send(msg)

@@ -3,7 +3,7 @@
     category: 'Neo_Molecules',
     color: '#c7e9c0',
     defaults: {
-      url: { value: "" }
+      target: { value: "" }
     },
     inputs: 1,
     outputs: 1,
@@ -15,14 +15,13 @@
   })
 </script>
 
-<!-- <script type="text/x-red" data-template-name="molecule-camera">
+<script type="text/x-red" data-template-name="molecule-camera">
   <div class="form-row">
-    <p>@TODO: Switch between front & back</p>
-    <label for="node-input-url"><i class="icon-tag"></i> url</label>
-    <input type="text" id="node-input-url" placeholder="url">
+    <label for="node-input-target"><i class="icon-tag"></i> target</label>
+    <input type="text" id="node-input-target" placeholder="target">
   </div>
-</script> -->
+</script>
 
 <script type="text/x-red" data-help-name="molecule-camera">
-  <p>Molecule to launch the camera.</p>
+  <p>Molecule to launch the camera. Only target is a required attribute.</p>
 </script>
