@@ -7,7 +7,10 @@
     "type": "git",
     "url": "git+ssh://github.com/neohelden/node-red-contrib-neo-particles.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "mustache": "^3.0.1"
+  },
   "keywords": [
     "node-red",
     "neo",

@@ -1,3 +1,6 @@
+const _ = require('lodash')
+const Mustache = require('mustache')
+
 module.exports = function (RED) {
   function NeoContentAdaptivecard(n) {
     RED.nodes.createNode(this, n);
@@ -9,19 +12,14 @@ module.exports = function (RED) {
         return
       }
 
-      if (!('response' in msg.payload)) {
-        msg.payload.response = {
-          content: []
-        }
+      if (!_.get(msg.payload, 'response.content')) {
+        _.set(msg.payload, 'response.content', [])  
       }
 
-      if (!('content' in msg.payload.response)) {
-        msg.payload.response.content = []
-      }
-
+      let templatedCard = Mustache.render(n.card, msg.payload)
       var cardPayload = {}
       try {
-        cardPayload = JSON.parse(n.card)
+        cardPayload = JSON.parse(templatedCard)
       } catch (e) {
         node.error('Parsing AdaptiveCard payload failed: ' + e.toString(), msg)
       }

@@ -1,3 +1,6 @@
+const _ = require('lodash')
+const Mustache = require('mustache')
+
 module.exports = function (RED) {
   function NeoContentHTML(n) {
     RED.nodes.createNode(this, n);
@@ -9,19 +12,13 @@ module.exports = function (RED) {
         return
       }
 
-      if (!('response' in msg.payload)) {
-        msg.payload.response = {
-          content: []
-        }
-      }
-
-      if (!('content' in msg.payload.response)) {
-        msg.payload.response.content = []
+      if (!_.get(msg.payload, 'response.content')) {
+        _.set(msg.payload, 'response.content', [])  
       }
 
       msg.payload.response.content.push({
         type: 'html',
-        html: n.html
+        text: Mustache.render(n.html, msg.payload)
       })
 
       node.send(msg)
