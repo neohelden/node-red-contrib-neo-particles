@@ -1,0 +1,19 @@
+{
+  "non-interactive": true,
+  "force": false,
+  "pkgFiles": [
+    "package.json"
+  ],
+  "increment": "patch",
+  "commitMessage": "Release v%s",
+  "tagName": "v%s",
+  "tagAnnotation": "Release v%s",
+  "changelogCommand": "git log --pretty=format:'* %s (%h)' [REV_RANGE]",
+  "requireCleanWorkingDir": true,
+  "npm": {
+    "publish": false
+  },
+  "github": {
+    "release": true
+  }
+}
