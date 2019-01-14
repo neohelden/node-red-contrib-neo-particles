@@ -1,3 +1,5 @@
+const Mustache = require('mustache')
+
 module.exports = function (RED) {
   function NeoAtomSuggestion(n) {
     RED.nodes.createNode(this, n);
@@ -20,8 +22,8 @@ module.exports = function (RED) {
       }
 
       msg.payload.response.suggestions.push({
-        label: n.label,
-        value: n.value,
+        label: Mustache.render(n.label, msg.payload),
+        value: Mustache.render(n.value, msg.payload),
       })
 
       node.send(msg)
