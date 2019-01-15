@@ -1,3 +1,5 @@
+const Mustache = require('mustache')
+
 module.exports = function (RED) {
   function NeoDirectiveEmailCompose(n) {
     RED.nodes.createNode(this, n);
@@ -23,10 +25,10 @@ module.exports = function (RED) {
         recipients: n.recipients
       }
 
-      if (n.subject && n.subject.length > 0) mailComposeData.subject = n.subject
-      if (n.body && n.body.length > 0) mailComposeData.body = n.body
-      if (n.cc && n.cc.length > 0) mailComposeData.cc = n.cc
-      if (n.bcc && n.bcc.length > 0) mailComposeData.bcc = n.bcc
+      if (n.subject && n.subject.length > 0) mailComposeData.subject = Mustache.render(n.subject, msg.payload)
+      if (n.body && n.body.length > 0) mailComposeData.body = Mustache.render(n.body, msg.payload)
+      if (n.cc && n.cc.length > 0) mailComposeData.cc = Mustache.render(n.cc, msg.payload)
+      if (n.bcc && n.bcc.length > 0) mailComposeData.bcc = Mustache.render(n.bcc, msg.payload)
 
       msg.payload.response.directives.push({
         type: 'email.compose',

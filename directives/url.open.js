@@ -1,3 +1,5 @@
+const Mustache = require('mustache')
+
 module.exports = function (RED) {
   function NeoDirectiveURLOpen(n) {
     RED.nodes.createNode(this, n);
@@ -22,7 +24,7 @@ module.exports = function (RED) {
       msg.payload.response.directives.push({
         type: 'url.open',
         data: {
-          url: n.url
+          url: Mustache.render(n.url, msg.payload)
         }
       })
 

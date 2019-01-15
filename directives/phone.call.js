@@ -1,3 +1,5 @@
+const Mustache = require('mustache')
+
 module.exports = function (RED) {
   function NeoDirectivePhoneCall(n) {
     RED.nodes.createNode(this, n);
@@ -22,7 +24,7 @@ module.exports = function (RED) {
       msg.payload.response.directives.push({
         type: 'phone.call',
         data: {
-          number: n.number
+          number: Mustache.render(n.number, msg.payload)
         }
       })
 

@@ -1,3 +1,5 @@
+const Mustache = require('mustache')
+
 module.exports = function (RED) {
   function NeoMoleculeCamera(n) {
     RED.nodes.createNode(this, n);
@@ -21,7 +23,7 @@ module.exports = function (RED) {
 
       msg.payload.response.content.push({
         type: 'camera',
-        target: n.target
+        target: Mustache.render(n.target, msg.payload)
       })
 
       node.send(msg)

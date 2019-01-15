@@ -1,3 +1,5 @@
+const Mustache = require('mustache')
+
 module.exports = function (RED) {
   function NeoContentMicrolink(n) {
     RED.nodes.createNode(this, n);
@@ -23,9 +25,9 @@ module.exports = function (RED) {
         type: 'microlink'
       }
 
-      if (n.url && n.url.length > 0) contentPayload.url = n.url
-      if (n.size && n.size.length > 0) contentPayload.size = n.size
-      if (n.contrast) contentPayload.contrast = n.contrast
+      if (n.url && n.url.length > 0) contentPayload.url = Mustache.render(n.url, msg.payload)
+      if (n.size && n.size.length > 0) contentPayload.size = Mustache.render(n.size, msg.payload)
+      if (n.contrast) contentPayload.contrast = Mustache.render(n.contrast, msg.payload)
 
       msg.payload.response.content.push(contentPayload)
       node.send(msg)
