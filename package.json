@@ -25,6 +25,7 @@
       "content.html": "contents/html.js",
       "content.adaptivecard": "contents/adaptivecard.js",
       "content.microlink": "contents/microlink.js",
+      "content.expandable": "contents/expandable.js",
       "molecule.camera": "molecules/camera.js",
       "atom.suggestion": "atoms/suggestion.js"
     }
