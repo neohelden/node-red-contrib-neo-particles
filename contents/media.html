@@ -1,0 +1,67 @@
+
+<script type="text/javascript">
+  RED.nodes.registerType('content-media', {
+    category: 'Neo_Contents',
+    color: '#b7dfef',
+    defaults: {
+      name: { value: '' },
+      url: { value: '' },
+      playing: { value: false },
+      light: { value: false },
+      muted: { value: false },
+      volume: { value: null },
+      loop: { value: false },
+      controls: { value: true }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "file.png",
+    paletteLabel: 'Media',
+    label: function () {
+      return this.name || 'Content: Media'
+    }
+  })
+</script>
+
+<script type="text/x-red" data-template-name="content-media">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-comment"></i> Name</span></label>
+    <input type="text" id="node-input-name">
+  </div>
+  <div class="form-row">
+    <label for="node-input-url"><i class="fa fa-comment"></i> URL</span></label>
+    <input type="text" id="node-input-url">
+  </div>
+  
+  <div class="form-row">
+    <label for="node-input-playing"><i class="fa fa-comment"></i> playing</span></label>
+    <input type="checkbox" id="node-input-playing">
+  </div>
+  <div class="form-row">
+    <label for="node-input-light"><i class="fa fa-comment"></i> light</span></label>
+    <input type="checkbox" id="node-input-light">
+  </div>
+  <div class="form-row">
+    <label for="node-input-muted"><i class="fa fa-comment"></i> muted</span></label>
+    <input type="checkbox" id="node-input-muted">
+  </div>
+  <div class="form-row">
+    <label for="node-input-volume"><i class="fa fa-comment"></i> volume</span></label>
+    <input type="number" id="node-input-volume">
+  </div>
+  <div class="form-row">
+    <label for="node-input-loop"><i class="fa fa-comment"></i> loop</span></label>
+    <input type="checkbox" id="node-input-loop">
+  </div>
+  <div class="form-row">
+    <label for="node-input-controls"><i class="fa fa-comment"></i> controls</span></label>
+    <input type="checkbox" id="node-input-controls">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="content-media">
+  <p>Media content type responses.</p>
+  <p>
+    You can use <code>mustache</code> syntax to embed variables. E.g. <code>{{context.user.user_id}}</code>
+  </p>
+</script>
