@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  RED.nodes.registerType('directive-phone-call', {
+  RED.nodes.registerType('directive-phone.call', {
     category: 'Neo_Directives',
     color: '#e8defa',
     defaults: {
@@ -15,13 +15,13 @@
   })
 </script>
 
-<script type="text/x-red" data-template-name="directive-phone-call">
+<script type="text/x-red" data-template-name="directive-phone.call">
   <div class="form-row">
     <label for="node-input-number"><i class="icon-tag"></i> number</label>
-    <input type="text" id="node-input-number" placeholder="number">
+    <input type="tel" id="node-input-number" placeholder="number">
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="directive-phone-call">
+<script type="text/x-red" data-help-name="directive-phone.call">
   <p>Directive to trigger phone calls. Only the phone number to call has to be provided.</p>
 </script>

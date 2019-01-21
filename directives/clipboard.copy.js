@@ -1,5 +1,5 @@
 const generator = require('./generator')
 
 module.exports = function (RED) {
-  generator('phone.call', RED)
+  generator('clipboard.copy', RED)
 }

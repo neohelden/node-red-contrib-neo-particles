@@ -1,0 +1,27 @@
+<script type="text/javascript">
+  RED.nodes.registerType('directive-clipboard.copy', {
+    category: 'Neo_Directives',
+    color: '#e8defa',
+    defaults: {
+      text: { value: "" }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "bridge.png",
+    paletteLabel: 'Clipboard copy',
+    label: function () {
+      return 'Directive: Clipboard copy'
+    }
+  })
+</script>
+
+<script type="text/x-red" data-template-name="directive-clipboard.copy">
+  <div class="form-row">
+    <label for="node-input-text"><i class="icon-tag"></i> text</label>
+    <input type="text" id="node-input-text" placeholder="text">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="directive-clipboard.copy">
+  <p>Directive to trigger a clipboard copy. Only the text to copy has to be provided.</p>
+</script>
