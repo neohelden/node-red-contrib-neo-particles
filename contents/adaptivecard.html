@@ -4,6 +4,7 @@
     color: '#b7dfef',
     defaults: {
       name: { value: '' },
+      speak: { value: ''},
       card: { value: '' }
     },
     inputs: 1,
@@ -47,8 +48,13 @@
 
 <script type="text/x-red" data-template-name="content-adaptivecard">
   <div class="form-row">
-    <label for="node-input-name"><i class="fa fa-comment"></i> Title</span></label>
+    <label for="node-input-name"><i class="fa fa-tag"></i> Title</span></label>
     <input type="text" id="node-input-name">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-speak"><i class="fa fa-comment"></i> Speak</span></label>
+    <input type="text" id="node-input-speak">
   </div>
 
   <div class="form-row" style="margin-bottom: 0px;">

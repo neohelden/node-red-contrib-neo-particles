@@ -17,6 +17,10 @@ module.exports = function (contentType, RED) {
         _.set(msg.payload, 'response.content', [])
       }
 
+      let contentPayload = {
+        type: contentType
+      }
+
       // clone and sanitize the original config object
       let data = _.cloneDeep(config)
       delete data.id
@@ -27,10 +31,15 @@ module.exports = function (contentType, RED) {
       delete data.y
       delete data.wires
 
-      msg.payload.response.content.push({
-        type: contentType,
-        data: _.mapValues(data, (v) => Mustache.render(v, msg.payload))
-      })
+      data = _.mapValues(data, (v) => Mustache.render(v, msg.payload))
+
+      if (data.speak) {
+        contentPayload.speak = data.speak
+        delete data.speak
+      }
+
+      contentPayload.data = data
+      msg.payload.response.content.push(contentPayload)
 
       node.send(msg)
     });

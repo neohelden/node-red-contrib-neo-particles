@@ -4,23 +4,29 @@
     color: '#b7dfef',
     defaults: {
       name: { value: '' },
-      text: { value: '' }
+      text: { value: '' },
+      speak: { value: '' }
     },
     inputs: 1,
     outputs: 1,
     icon: "content-plain.png",
     paletteLabel: 'Plain',
     label: function () {
-      return this.name || 'Content: Plain'
+      return this.name || 'Plain'
     }
   })
 </script>
 
 <script type="text/x-red" data-template-name="content-plain">
   <div class="form-row">
-    <label for="node-input-name"><i class="fa fa-comment"></i> Name</span></label>
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</span></label>
     <input type="text" id="node-input-name">
   </div>
+  <div class="form-row">
+    <label for="node-input-speak"><i class="fa fa-comment"></i> Speak</span></label>
+    <input type="text" id="node-input-speak">
+  </div>
+
   <div class="form-row">
     <label for="node-input-text"><i class="icon-tag"></i> text</label><br>
     <textarea id="node-input-text" placeholder="text" style="width: 100%; height: 150px;"></textarea>

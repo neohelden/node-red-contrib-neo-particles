@@ -26,7 +26,8 @@ module.exports = function (RED) {
 
       msg.payload.response.content.push({
         type: 'adaptivecard',
-        card: cardPayload
+        speak: Mustache.render(n.speak, msg.payload),
+        data: { card: cardPayload }
       })
 
       node.send(msg)

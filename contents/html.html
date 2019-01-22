@@ -4,14 +4,15 @@
     color: '#b7dfef',
     defaults: {
       name: { value: '' },
-      html: { value: '' }
+      html: { value: '' },
+      speak: { value: '' }
     },
     inputs: 1,
     outputs: 1,
     icon: "content-html.png",
     paletteLabel: 'HTML',
     label: function () {
-      return this.name || 'Content: HTML'
+      return this.name || 'HTML'
     },
     oneditprepare: function() {
         var that = this;
@@ -47,8 +48,13 @@
 
 <script type="text/x-red" data-template-name="content-html">
   <div class="form-row">
-    <label for="node-input-name"><i class="fa fa-comment"></i> Name</span></label>
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</span></label>
     <input type="text" id="node-input-name">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-speak"><i class="fa fa-comment"></i> Speak</span></label>
+    <input type="text" id="node-input-speak">
   </div>
 
   <div class="form-row" style="margin-bottom: 0px;">

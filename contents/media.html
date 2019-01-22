@@ -5,6 +5,7 @@
     color: '#b7dfef',
     defaults: {
       name: { value: '' },
+      speak: { value: '' },
       url: { value: '' },
       playing: { value: false },
       light: { value: false },
@@ -18,16 +19,21 @@
     icon: "content-media.png",
     paletteLabel: 'Media',
     label: function () {
-      return this.name || 'Content: Media'
+      return this.name || 'Media'
     }
   })
 </script>
 
 <script type="text/x-red" data-template-name="content-media">
   <div class="form-row">
-    <label for="node-input-name"><i class="fa fa-comment"></i> Name</span></label>
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</span></label>
     <input type="text" id="node-input-name">
   </div>
+  <div class="form-row">
+    <label for="node-input-speak"><i class="fa fa-comment"></i> Speak</span></label>
+    <input type="text" id="node-input-speak">
+  </div>
+
   <div class="form-row">
     <label for="node-input-url"><i class="fa fa-comment"></i> URL</span></label>
     <input type="text" id="node-input-url">

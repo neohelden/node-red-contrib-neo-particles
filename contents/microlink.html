@@ -3,6 +3,7 @@
     category: 'Neo_Contents',
     color: '#b7dfef',
     defaults: {
+      speak: { value: '' },
       url: { value: "", required: true },
       size: { value: "normal" },
       contrast: { value: false }
@@ -12,12 +13,16 @@
     icon: "file.png",
     paletteLabel: 'Microlink',
     label: function () {
-      return 'Content: Microlink'
+      return 'Microlink'
     }
   })
 </script>
 
 <script type="text/x-red" data-template-name="content-microlink">
+  <div class="form-row">
+    <label for="node-input-speak"><i class="fa fa-comment"></i> Speak</span></label>
+    <input type="text" id="node-input-speak">
+  </div>
   <div class="form-row">
     <label for="node-input-url"><i class="icon-tag"></i> url</label>
     <input type="text" id="node-input-url" placeholder="url">
