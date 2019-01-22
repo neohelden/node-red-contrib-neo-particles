@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  RED.nodes.registerType('directive-email-compose', {
+  RED.nodes.registerType('directive-email.compose', {
     category: 'Neo_Directives',
     color: '#e8defa',
     defaults: {
@@ -48,7 +48,7 @@
   })
 </script>
 
-<script type="text/x-red" data-template-name="directive-email-compose">
+<script type="text/x-red" data-template-name="directive-email.compose">
   <div class="form-row">
     <label for="node-input-recipients"><i class="icon-tag"></i> recipients</label>
     <input type="text" id="node-input-recipients" placeholder="recipients">
@@ -79,6 +79,6 @@
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="directive-email-compose">
+<script type="text/x-red" data-help-name="directive-email.compose">
   <p>Directive to trigger email compose. Only recipients is a required attribute.</p>
 </script>
