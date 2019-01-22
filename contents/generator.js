@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const Mustache = require('mustache')
 
-module.exports = function (contentType, RED) {
+module.exports = function (contentType, RED, dataProcessor) {
   RED.nodes.registerType(`content-${contentType}`, function (config) {
     RED.nodes.createNode(this, config);
 
@@ -31,14 +31,20 @@ module.exports = function (contentType, RED) {
       delete data.y
       delete data.wires
 
-      data = _.mapValues(data, (v) => Mustache.render(v, msg.payload))
+      data = _.mapValues(data, (v) => {
+        if (_.isString(v)) {
+          return Mustache.render(v, msg.payload)
+        }
+
+        return v
+      })
 
       if (data.speak) {
         contentPayload.speak = data.speak
         delete data.speak
       }
 
-      contentPayload.data = data
+      contentPayload.data = dataProcessor ? dataProcessor(data) : data
       msg.payload.response.content.push(contentPayload)
 
       node.send(msg)

@@ -4,14 +4,14 @@
     color: '#b7dfef',
     defaults: {
       name: { value: '' },
-      lat: { value: '' },
-      lng: { value: '' },
-      zoom: { value: '' },
+      lat: { value: '', required: true },
+      lng: { value: '', required: true },
+      zoom: { value: 13, required: true, validate:RED.validators.number()},
       speak: { value: '' }
     },
     inputs: 1,
     outputs: 1,
-    icon: "file.png",
+    icon: "white-globe.png",
     paletteLabel: 'Map',
     label: function () {
       return this.name || 'Map'
@@ -30,15 +30,15 @@
   </div>
 
   <div class="form-row">
-    <label for="node-input-lat"><i class="fa fa-comment"></i> lat</span></label>
+    <label for="node-input-lat"><i class="fa fa-map-marker"></i> lat</span></label>
     <input type="text" id="node-input-lat">
   </div>
   <div class="form-row">
-    <label for="node-input-lng"><i class="fa fa-comment"></i> lng</span></label>
+    <label for="node-input-lng"><i class="fa fa-map-marker"></i> lng</span></label>
     <input type="text" id="node-input-lng">
   </div>
   <div class="form-row">
-    <label for="node-input-zoom"><i class="fa fa-comment"></i> zoom</span></label>
+    <label for="node-input-zoom"><i class="fa fa-search-plus"></i> zoom</span></label>
     <input type="text" id="node-input-zoom">
   </div>
 </script>
