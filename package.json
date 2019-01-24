@@ -26,6 +26,7 @@
       "content.media": "contents/media.js",
       "content.html": "contents/html.js",
       "content.plain": "contents/plain.js",
+      "content.user.message": "contents/user.message.js",
       "content.adaptivecard": "contents/adaptivecard.js",
       "content.microlink": "contents/microlink.js",
       "content.expandable": "contents/expandable.js",

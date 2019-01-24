@@ -1,0 +1,36 @@
+<script type="text/javascript">
+  RED.nodes.registerType('content-user.message', {
+    category: 'Neo_Contents',
+    color: '#b7dfef',
+    defaults: {
+      name: { value: '' },
+      text: { value: '', required: true }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "content-user-message.png",
+    paletteLabel: 'User message',
+    label: function () {
+      return this.name || 'User message'
+    }
+  })
+</script>
+
+<script type="text/x-red" data-template-name="content-user.message">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</span></label>
+    <input type="text" id="node-input-name">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-text"><i class="icon-tag"></i> text</label><br>
+    <textarea id="node-input-text" placeholder="text" style="width: 100%; height: 150px;"></textarea>
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="content-user.message">
+  <p>User message content type responses.</p>
+  <p>
+    You can use <code>mustache</code> syntax to embed variables. E.g. <code>{{context.user.user_id}}</code>
+  </p>
+</script>
