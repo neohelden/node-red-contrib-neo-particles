@@ -33,7 +33,9 @@ module.exports = function (contentType, RED, dataProcessor) {
 
       data = _.mapValues(data, (v) => {
         if (_.isString(v)) {
-          return Mustache.render(v, msg.payload)
+          let view = msg.payload
+          view.task = msg.task || {}
+          return Mustache.render(v, view)
         }
 
         return v
