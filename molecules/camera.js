@@ -23,7 +23,9 @@ module.exports = function (RED) {
 
       msg.payload.response.content.push({
         type: 'camera',
-        target: Mustache.render(n.target, msg.payload)
+        data: {
+          target: Mustache.render(n.target, msg.payload)
+        }
       })
 
       node.send(msg)
