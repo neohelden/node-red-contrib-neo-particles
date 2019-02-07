@@ -16,7 +16,9 @@ module.exports = function (RED) {
         _.set(msg.payload, 'response.content', [])  
       }
 
-      let templatedCard = Mustache.render(n.card, msg.payload)
+      let view = _.cloneDeep(msg.payload)
+      view.task = msg.task || {}
+      let templatedCard = Mustache.render(n.card, view)
       var cardPayload = {}
       try {
         cardPayload = JSON.parse(templatedCard)

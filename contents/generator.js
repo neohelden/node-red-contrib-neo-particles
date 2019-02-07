@@ -33,7 +33,7 @@ module.exports = function (contentType, RED, dataProcessor) {
 
       data = _.mapValues(data, (v) => {
         if (_.isString(v)) {
-          let view = msg.payload
+          let view = _.cloneDeep(msg.payload)
           view.task = msg.task || {}
           return Mustache.render(v, view)
         }
