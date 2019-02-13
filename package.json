@@ -22,6 +22,7 @@
       "directive-email.compose": "directives/email.compose.js",
       "directive-url.open": "directives/url.open.js",
       "directive-clipboard.copy": "directives/clipboard.copy.js",
+      "directive-audio.play": "directives/audio.play.js",
       "content.map": "contents/map.js",
       "content.media": "contents/media.js",
       "content.html": "contents/html.js",

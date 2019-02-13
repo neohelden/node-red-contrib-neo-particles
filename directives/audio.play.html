@@ -1,0 +1,27 @@
+<script type="text/javascript">
+  RED.nodes.registerType('directive-audio.play', {
+    category: 'Neo_Directives',
+    color: '#e8defa',
+    defaults: {
+      url: { value: "" }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "alert.png",
+    paletteLabel: 'Play Audio',
+    label: function () {
+      return 'Directive: Play audio'
+    }
+  })
+</script>
+
+<script type="text/x-red" data-template-name="directive-audio.play">
+  <div class="form-row">
+    <label for="node-input-url"><i class="icon-tag"></i> url</label>
+    <input type="text" id="node-input-url" placeholder="url">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="directive-audio.play">
+  <p>Directive to play audio. Only the URL to open has to be provided.</p>
+</script>
