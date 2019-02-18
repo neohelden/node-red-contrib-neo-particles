@@ -27,10 +27,17 @@ module.exports = function (directiveType, RED) {
       delete data.y
       delete data.wires
 
-      msg.payload.response.directives.push({
-        type: directiveType,
-        data: _.mapValues(data, (v) => Mustache.render(v, msg.payload))
+      data = _.mapValues(data, (v) => {
+        if (_.isString(v)) {
+          let view = _.cloneDeep(msg.payload)
+          view.task = msg.task || {}
+          return Mustache.render(v, view)
+        }
+
+        return v
       })
+
+      msg.payload.response.directives.push({ type: directiveType, data })
 
       node.send(msg)
     });
