@@ -18,6 +18,7 @@ module.exports = function (RED) {
 
       let view = _.cloneDeep(msg.payload)
       view.task = msg.task || {}
+
       let templatedCard = Mustache.render(n.card, view)
       var cardPayload = {}
       try {
@@ -28,7 +29,7 @@ module.exports = function (RED) {
 
       msg.payload.response.content.push({
         type: 'adaptivecard',
-        speak: Mustache.render(n.speak, msg.payload),
+        speak: Mustache.render(n.speak, view),
         data: { card: cardPayload }
       })
 
