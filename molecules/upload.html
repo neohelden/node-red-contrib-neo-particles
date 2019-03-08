@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  RED.nodes.registerType('molecule-camera', {
+  RED.nodes.registerType('molecule-upload', {
     category: 'Neo_Flow',
     color: '#E7E7AE',
     defaults: {
@@ -7,21 +7,21 @@
     },
     inputs: 1,
     outputs: 1,
-    icon: "molecule-camera.png",
-    paletteLabel: 'Camera',
+    icon: "file.png",
+    paletteLabel: 'Upload',
     label: function () {
-      return 'Camera'
+      return 'Upload'
     }
   })
 </script>
 
-<script type="text/x-red" data-template-name="molecule-camera">
+<script type="text/x-red" data-template-name="molecule-upload">
   <div class="form-row">
     <label for="node-input-target"><i class="icon-tag"></i> target</label>
     <input type="text" id="node-input-target" placeholder="target">
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="molecule-camera">
-  <p>Molecule to launch the camera. Only target is a required attribute.</p>
+<script type="text/x-red" data-help-name="molecule-upload">
+  <p>Molecule to launch the upload. Only target is a required attribute.</p>
 </script>

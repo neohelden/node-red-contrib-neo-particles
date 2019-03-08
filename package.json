@@ -32,6 +32,7 @@
       "content.microlink": "contents/microlink.js",
       "content.expandable": "contents/expandable.js",
       "molecule.camera": "molecules/camera.js",
+      "molecule.upload": "molecules/upload.js",
       "atom.suggestion": "atoms/suggestion.js"
     }
   },
