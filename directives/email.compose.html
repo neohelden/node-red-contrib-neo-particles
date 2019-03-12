@@ -80,5 +80,43 @@
 </script>
 
 <script type="text/x-red" data-help-name="directive-email.compose">
-  <p>Directive to trigger email compose. Only recipients is a required attribute.</p>
+  <p>With this Directive you trigger the email program on the device to open a pre-populated draft. </p>
+  <h3>Inputs</h3>
+  <dl class="message-properties">
+    <dt>eecipient <span class="property-type">string</span></dt>
+    <dd>(required): Email address of recipient</dd>
+
+    <dt>subject <span class="property-type">string</span></dt>
+    <dd>Subject line of email</dd>
+
+    <dt>body <span class="property-type">string</span></dt>
+    <dd>Content of the email</dd>
+
+    <dt>CC <span class="property-type">string</span></dt>
+    <dd>Email address(es) of CC-recipient(s</dd>
+
+    <dt>BCC <span class="property-type">string</span></dt>
+    <dd>Email address(es) of BCC-recipient(s</dd>
+  </dl>
+  <h3>Outputs</h3>
+  <ol class="node-ports">
+    <li>Standard output
+      <dl class="message-properties">
+        <dt>particle <span class="property-type">object</span></dt>
+        <dd>full particle with the <code>email.compose</code> directive.</dd>
+      </dl>
+    </li>
+    <li>Standard error
+      <dl class="message-properties">
+        <dt>error <span class="property-type">Error</span></dt>
+        <dd>throws an error, if the payload is not a valid particle.</dd>
+      </dl>
+    </li>
+  </ol>
+  <h3>Details</h3>
+  <p>Mustache-Templating is <strong>enabled</strong>.</p>
+  <h3>References</h3>
+  <ul>
+    <li><a href="https://mustache.github.io/mustache.5.html">Mustache-Templating</a></li>
+  </ul>
 </script>

@@ -68,5 +68,32 @@
 </script>
 
 <script type="text/x-red" data-help-name="content-adaptivecard">
-  <p>Plain content type responses.</p>
+  <p>Displays an <a href="https://adaptivecards.io/designer">Adaptive Card</a> by Microsoft. Include the JSON in Card payload.</p>
+  <h3>Inputs</h3>
+  <dl class="message-properties">
+    <dt>payload <span class="property-type">JSON</span></dt>
+    <dd>Put the JSON of the AdaptiveCard here.</dd>
+  </dl>
+  <h3>Outputs</h3>
+  <ol class="node-ports">
+    <li>Standard output
+      <dl class="message-properties">
+        <dt>particle <span class="property-type">object</span></dt>
+        <dd>full particle with the <code>adaptivecard</code> content.</dd>
+      </dl>
+    </li>
+    <li>Standard error
+      <dl class="message-properties">
+        <dt>error <span class="property-type">Error</span></dt>
+        <dd>throws an error, if the payload is not a valid particle.</dd>
+      </dl>
+    </li>
+  </ol>
+  <h3>Details</h3>
+  <p>Mustache-Templating is <strong>enabled</strong>.</p>
+  <h3>References</h3>
+  <ul>
+    <li><a href="https://mustache.github.io/mustache.5.html">Mustache-Templating</a></li>
+    <li><a href="https://adaptivecards.io/designer">Adaptive Card</a></li>
+  </ul>
 </script>

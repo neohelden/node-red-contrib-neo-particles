@@ -74,8 +74,33 @@
 </script>
 
 <script type="text/x-red" data-help-name="content-expandable">
-  <p>Expandable content type responses.</p>
-  <p>
-    You can use <code>mustache</code> syntax to embed variables. E.g. <code>{{context.user.user_id}}</code>
-  </p>
+  <p>This node shows an expandable card. Use title to define the content that is always visible, and HTML payload to define hidden/ expandable content.</p>
+  <h3>Inputs</h3>
+  <dl class="message-properties">
+    <dt>title <span class="property-type">string</span></dt>
+    <dd>Put the text for the title here.</dd>
+    <dt>html <span class="property-type">string</span></dt>
+    <dd>Put HTML code here</dd>
+  </dl>
+  <h3>Outputs</h3>
+  <ol class="node-ports">
+    <li>Standard output
+      <dl class="message-properties">
+        <dt>particle <span class="property-type">object</span></dt>
+        <dd>full particle with the <code>expandable</code> content.</dd>
+      </dl>
+    </li>
+    <li>Standard error
+      <dl class="message-properties">
+        <dt>error <span class="property-type">Error</span></dt>
+        <dd>throws an error, if the payload is not a valid particle.</dd>
+      </dl>
+    </li>
+  </ol>
+  <h3>Details</h3>
+  <p>Mustache-Templating is <strong>enabled</strong>.</p>
+  <h3>References</h3>
+  <ul>
+    <li><a href="https://mustache.github.io/mustache.5.html">Mustache-Templating</a></li>
+  </ul>
 </script>

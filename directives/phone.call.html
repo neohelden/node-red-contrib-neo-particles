@@ -23,5 +23,33 @@
 </script>
 
 <script type="text/x-red" data-help-name="directive-phone.call">
-  <p>Directive to trigger phone calls. Only the phone number to call has to be provided.</p>
+  <p>This directive triggers the phone call functionality on the respective device.</p>
+  <h3>Inputs</h3>
+  <dl class="message-properties">
+    <dt>number*
+      <span class="property-type">string</span>
+    </dt>
+    <dd>Recommended format: <code>+4972146139887</code>. Mustache-Templating enabled.</dd>
+  </dl>
+  <h3>Outputs</h3>
+  <ol class="node-ports">
+      <li>Standard output
+          <dl class="message-properties">
+              <dt>particle <span class="property-type">object</span></dt>
+              <dd>full particle with the <code>phone.call</code> directive.</dd>
+          </dl>
+      </li>
+      <li>Standard error
+          <dl class="message-properties">
+              <dt>error <span class="property-type">Error</span></dt>
+              <dd>throws an error, if the payload is not a valid particle.</dd>
+          </dl>
+      </li>
+  </ol>
+  <h3>Details</h3>
+  <p><strong>Important</strong>: Do not use spaces in-between the digits.</p>
+  <h3>References</h3>
+  <ul>
+    <li><a href="https://mustache.github.io/mustache.5.html">Mustache-Templating</a></li>
+  </ul>
 </script>
