@@ -1,0 +1,98 @@
+<script type="text/javascript">
+  RED.nodes.registerType('content-sticky', {
+    category: 'Neo_Contents',
+    color: '#b7dfef',
+    defaults: {
+      name: { value: '' },
+      html: { value: '', required: true },
+      speak: { value: '' }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "content-sticky.png",
+    paletteLabel: 'Sticky',
+    label: function () {
+      return this.name || 'Sticky'
+    },
+    oneditprepare: function() {
+        var that = this;
+        this.editor = RED.editor.createEditor({
+            id: 'node-input-html-editor',
+            mode: 'ace/mode/html',
+            value: $("#node-input-html").val()
+        });
+        this.editor.focus();
+    },
+    oneditsave: function() {
+        $("#node-input-html").val(this.editor.getValue());
+        this.editor.destroy();
+        delete this.editor;
+    },
+    oneditcancel: function() {
+        this.editor.destroy();
+        delete this.editor;
+    },
+    oneditresize: function(size) {
+        var rows = $("#dialog-form>div:not(.node-text-editor-row)");
+        var height = $("#dialog-form").height();
+        for (var i=0; i<rows.size(); i++) {
+            height -= $(rows[i]).outerHeight(true);
+        }
+        var editorRow = $("#dialog-form>div.node-text-editor-row");
+        height -= (parseInt(editorRow.css("marginTop"))+parseInt(editorRow.css("marginBottom")));
+        $(".node-text-editor").css("height",height+"px");
+        this.editor.resize();
+    }
+  })
+</script>
+
+<script type="text/x-red" data-template-name="content-sticky">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</span></label>
+    <input type="text" id="node-input-name">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-speak"><i class="fa fa-comment"></i> Speak</span></label>
+    <input type="text" id="node-input-speak">
+  </div>
+
+  <div class="form-row" style="margin-bottom: 0px;">
+    <label for="node-input-html" style="width: 100% !important;"><i class="fa fa-comments"></i> HTML payload</label>
+    <input type="hidden" id="node-input-html" autofocus="autofocus">
+  </div>
+
+  <div class="form-row node-text-editor-row">
+    <div style="height: 250px; min-height:150px;" class="node-text-editor" id="node-input-html-editor"></div>
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="content-sticky">
+  <p>Use this node to display sticky content.</p>
+  <h3>Inputs</h3>
+  <dl class="message-properties">
+    <dt>html <span class="property-type">string</span></dt>
+    <dd>Put HTML code for the Sticky bar here</dd>
+  </dl>
+  <h3>Outputs</h3>
+  <ol class="node-ports">
+    <li>Standard output
+      <dl class="message-properties">
+        <dt>particle <span class="property-type">object</span></dt>
+        <dd>full particle with the <code>html</code> content.</dd>
+      </dl>
+    </li>
+    <li>Standard error
+      <dl class="message-properties">
+        <dt>error <span class="property-type">Error</span></dt>
+        <dd>throws an error, if the payload is not a valid particle.</dd>
+      </dl>
+    </li>
+  </ol>
+  <h3>Details</h3>
+  <p>Mustache-Templating is <strong>enabled</strong>.</p>
+  <h3>References</h3>
+  <ul>
+    <li><a href="https://mustache.github.io/mustache.5.html">Mustache-Templating</a></li>
+  </ul>
+</script>

@@ -24,6 +24,7 @@
       "directive-clipboard.copy": "directives/clipboard.copy.js",
       "directive-audio.play": "directives/audio.play.js",
       "content.map": "contents/map.js",
+      "content.sticky": "contents/sticky.js",
       "content.media": "contents/media.js",
       "content.html": "contents/html.js",
       "content.plain": "contents/plain.js",
