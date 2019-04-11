@@ -3,6 +3,7 @@
     category: 'Neo_Flow',
     color: '#E7E7AE',
     defaults: {
+      name: { value: "" },
       label: { value: "" },
       value: { value: "" },
     },
@@ -10,11 +11,19 @@
     outputs: 1,
     icon: "atom-suggestion.png",
     paletteLabel: 'Suggestion',
-    label: 'Suggestion'
+    label: 'Suggestion',
+    label: function () {
+      return this.name || 'Suggestion'
+    }
   })
 </script>
 
 <script type="text/x-red" data-template-name="atom-suggestion">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</span></label>
+    <input type="text" id="node-input-name">
+  </div>
+
   <div class="form-row">
     <label for="node-input-label"><i class="icon-tag"></i> label</label>
     <input type="text" id="node-input-label" placeholder="label">
